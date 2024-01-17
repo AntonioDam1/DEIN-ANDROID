@@ -70,4 +70,5 @@
         android:layout_alignStart="@+id/texto_cargo"
         android:layout_below="@+id/texto_cargo"
         android:entries = "@array/lista_cargo"/>
+
 </RelativeLayout>
