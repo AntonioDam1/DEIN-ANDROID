@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Antonio Menu</string>
+    <string name="download">Descargar</string>
+    <string name="share">Buscar</string>
+    <string name="copy_description">Copiar Color</string>
+    <string name="edit_action">Editar</string>
+    <string name="delete_action">Eliminar</string>
+    <string name="share_action">Buscar</string>
+    <string name="search_action">Buscar</string>
+</resources>
