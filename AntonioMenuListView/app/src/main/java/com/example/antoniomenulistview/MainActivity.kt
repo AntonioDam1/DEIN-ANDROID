@@ -18,33 +18,24 @@ import com.example.antoniomenulistview.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var listView: ListView
     private lateinit var adapter: ArrayAdapter<String>
-    val coloresConMarca = arrayOf(
+    private val coloresConMarca = arrayOf(
         "Azul_Mitsubishi", "Blanco_Mitsubishi", "Negro_Mitsubishi", "Oro_Mitsubishi",
         "Metal_Ford", "Blanco_Ford", "Negro_Ford", "Oro_Ford","Azul_Mitsubishi", "Blanco_Mitsubishi", "Negro_Mitsubishi", "Oro_Mitsubishi",
         "Metal_Ford", "Blanco_Ford", "Negro_Ford", "Oro_Ford"
     )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        listView = findViewById(R.id. listview)
-        adapter = ArrayAdapter( this, android.R.layout. simple_list_item_1,
-            coloresConMarca)
+        listView = findViewById(R.id.listview)
+        adapter = ArrayAdapter( this, android.R.layout.simple_list_item_1, coloresConMarca)
         listView.adapter = adapter
-
-
-        val toolbar: Toolbar = findViewById(R.id. toolbar)
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-
-
-
-
     }
     override fun onCreateOptionsMenu (menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu. menuelistview, menu)
-        return true
-        val searchItem = menu?.findItem(R.id. app_bar_search)
+        val searchItem = menu?.findItem(R.id.app_bar_search)
         val searchView = searchItem?.actionView as SearchView
-        searchView. queryHint = "Nombre..."
-        searchView.setOnQueryTextListener( object : SearchView.OnQueryTextListener {
+        searchView.queryHint = "Colores..."
+        searchView.setOnQueryTextListener( object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit (query: String?): Boolean {
                 Toast.makeText( this@MainActivity , "Búsqueda enviada: $query", Toast.LENGTH_SHORT).show()
                 return false
@@ -54,6 +45,8 @@ class MainActivity : AppCompatActivity() {
                 return false
             }
         })
+        menuInflater.inflate(R.menu.menuelistview, menu)
+        return true
     }
 
     override fun onOptionsItemSelected (item: MenuItem): Boolean {
@@ -62,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText( this, item.title, Toast.LENGTH_SHORT).show()
                 true
             }
-            R.id. settings -> {
+            R.id.settings -> {
                 goToSettings()
                 true
             }
@@ -73,7 +66,6 @@ class MainActivity : AppCompatActivity() {
     private fun goToSettings() {
         val intent = Intent( this, SettingsActivity::class.java)
         startActivity(intent)
-
     }
 
 }
